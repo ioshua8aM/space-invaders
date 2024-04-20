@@ -1,0 +1,13 @@
+
+
+/* fstream cañon;
+    cañon.open("./assets/cañon.txt");
+    string cañon;
+    archivo>>cañon;
+    archivo.close;
+
+    alien.open("./assets/alienn.txt");
+    string alien;
+    archivo>>alienn;
+    archivo.close;
+    */
