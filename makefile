@@ -5,7 +5,7 @@ ejecutar : bin/test
 	./bin/test
 
 bin/space : src/main.cpp
-	g++ src/main.cpp -o bin/space -std=c++2a -lftxui-screen -lftxui-component -lftxui-dom
+	g++ src/main.cpp -o bin/space -std=c++2a -lftxui-screen -lftxui-dom -Iinclude
 
 run : bin/space
 	./bin/space
