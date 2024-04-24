@@ -15,20 +15,20 @@ using namespace ftxui;
 int main(int argc, char const *argv[])
 {
    
-    Dibujo dTanque ("./asstes/images/canon.txt");
-    Dibujo dAlien ("./asstes/images/alien.txt");
-    
+    Dibujo dTanque ("./assts/images/canon.txt");
+    Dibujo dAlien ("./assets/images/alien.txt");
+    Dibujo dBloque ("./assts/images/canon.txt");
    
     int fotograma = 0;
 
-    while(true)
+    
+    while (true)
     {
-        fotograma++;
+    fotograma++;
+    
     Element personaje = spinner(21,fotograma) | bold | color(Color::Yellow1) | bgcolor(Color::Green1);
     Element tanque = dTanque.GetElement() | bold | color(Color::Green) | bgcolor(Color::Blue);
-    Element lienzo = hbox({
-        personaje, tanque, dAlien.GetElement()
-    });
+    Element lienzo = hbox({ personaje, tanque, dAlien.GetElement() });
 
     Screen pantalla = Screen::Create(
         Dimension::Full(),
