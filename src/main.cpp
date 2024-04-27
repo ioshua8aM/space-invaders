@@ -6,8 +6,9 @@
 #include <fstream>
 #include <ftxui/screen/terminal.hpp>
 #include <Dibujo.hpp>
+#include <chrono>
 
-
+using namespace std::chrono_literals;
 using namespace std;
 using namespace ftxui;
 
@@ -15,9 +16,10 @@ using namespace ftxui;
 int main(int argc, char const *argv[])
 {
    
-    Dibujo dTanque ("./assts/images/canon.txt");
+    Dibujo dTanque ("./assets/images/canon.txt");
     Dibujo dAlien ("./assets/images/alien.txt");
-    Dibujo dBloque ("./assts/images/canon.txt");
+    Dibujo dBloque ("./assets/images/canon.txt");
+
    
     int fotograma = 0;
 
@@ -39,7 +41,7 @@ int main(int argc, char const *argv[])
     pantalla.Print();
     cout << pantalla.ResetPosition();
 
-    this_thread::sleep_for(0.1s);
+    this_thread::sleep_for(100ms);
     }
     return 0;
 }
