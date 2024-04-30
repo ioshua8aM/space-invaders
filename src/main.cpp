@@ -5,7 +5,7 @@
 #include <ftxui/screen/screen.hpp>
 #include <fstream>
 #include <ftxui/screen/terminal.hpp>
-#include <Dibujo.hpp>
+#include <Archivo.hpp>
 #include <chrono>
 
 using namespace std::chrono_literals;
@@ -16,9 +16,9 @@ using namespace ftxui;
 int main(int argc, char const *argv[])
 {
    
-    Dibujo dTanque ("./assets/images/canon.txt");
-    Dibujo dAlien ("./assets/images/alien.txt");
-    Dibujo dBloque ("./assets/images/canon.txt");
+    Archivo dTanque ("./assets/images/canon.txt");
+    Archivo dAlien ("./assets/images/alien.txt");
+    Archivo dBloque ("./assets/images/canon.txt");
 
    
     int fotograma = 0;
@@ -28,7 +28,7 @@ int main(int argc, char const *argv[])
     {
     fotograma++;
     
-    Element personaje = spinner(21,fotograma) | bold | color(Color::Yellow1) | bgcolor(Color::Green1);
+    Element personaje = spinner(21,fotograma) | bold | color(Color::Black) | bgcolor(Color::White);
     Element tanque = dTanque.GetElement() | bold | color(Color::Green) | bgcolor(Color::Blue);
     Element lienzo = hbox({ personaje, tanque, dAlien.GetElement() });
 
