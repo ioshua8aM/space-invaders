@@ -1,6 +1,7 @@
 #pragma once
 #include <fstream>
 #include <ftxui/dom/elements.hpp>
+#include <list>
 
 using namespace std;
 using namespace ftxui;
@@ -9,7 +10,7 @@ class Archivo
 {
 private:
     fstream archivo;
-    Element contenido;
+    list<string> contenido;
 public: 
     Archivo(string path)
     {
@@ -19,14 +20,14 @@ public:
         {
             string linea;
             getline(archivo, linea);
-            lineas.emplace_back(text(linea));
+            contenido.push_back(linea);
         }
-        this->contenido = vbox(lineas);
         archivo.close();
     }
-    Element GetElement()
+    Dibujo CrearDibujo()
     {
-        return this->contenido;
+        Dibujo temp(contenido, 0,0);
+        return temp;
     }
 ~Archivo(){}
 };

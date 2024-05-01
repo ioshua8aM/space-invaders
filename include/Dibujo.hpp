@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <ftxui/screen/screen.hpp>
+#include <list>
 
 using namespace std;
 using namespace std;
@@ -10,7 +11,7 @@ class Dibujo
 private:
     int posicionX = 0;
     int posicionY = 0;
-    string palabra;
+    list<string> contenido;
 public:
     Dibujo()
     {
@@ -22,24 +23,38 @@ public:
         this -> posicionX = posicionX;
         this -> posicionY = posicionY;
     }
-    Dibujo(string palabra, int posicionX, int posicionY)
+    Dibujo(list<string> contenido, int posicionX, int posicionY)
     {
-        this -> palabra = palabra;
+        this -> contenido = contenido;
         this -> posicionX = posicionX;
         this -> posicionY = posicionY;
     }
     void Dibujar(ftxui::Screen &pantalla)
     {
-        int posicionPalabraX = 0;
         int posicionPalabraY = 0;
         
-        for (auto &&letra : palabra)
+        for (auto &&linea : contenido)
         {
-            int posicionFinalX = this->posicionX + posicionPalabraX;
-            int posicionFinalY = this->posicionY + posicionPalabraY;
-
-            pantalla.PixelAt(posicionFinalX, posicionFinalY).character = letra;
-            posicionPalabraX++;
+            int posicionPalabraX = 0;
+            for (auto &&letra : linea)
+            {
+                int posicionFinalX = this->posicionX + posicionPalabraX;
+                int posicionFinalY = this->posicionY + posicionPalabraY;
+                
+                pantalla.PixelAt(posicionFinalX, posicionFinalY).character = letra;
+                posicionPalabraX++;
+            }
+            posicionPalabraY++;
         }
+    }
+
+    void DesplazarX (int distancia)
+    {
+        posicionX += distancia;
+    }
+
+    void DesplazarY (int distancia)
+    {
+        posicionY += distancia;
     }
 };

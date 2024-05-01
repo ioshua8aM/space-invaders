@@ -11,7 +11,7 @@ ejecutar : bin/test
 	./bin/test
 
 
-bin/ventana : src/ventana.cpp
+bin/ventana : src/ventana.cpp include/*
 	g++ src/ventana.cpp -o bin/ventana -std=c++2a -Iinclude -lftxui-screen -lftxui-component -lftxui-dom
 
 ventana : bin/ventana
