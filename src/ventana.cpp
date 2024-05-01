@@ -16,7 +16,11 @@ int main(int argc, char const *argv[])
     Archivo alien("./assets/images/alien.txt");
     list<Dibujo> dibujos;
 
-    dibujos.push_back(alien.CrearDibujo());
+    for (size_t i = 0; i < 20; i++)
+    {
+        Dibujo d = alien.CrearDibujo();
+        d.EstablecerPosicion(experimental::randint(0,20), experimental::randint(0,20));
+        dibujos.push_back(d);
 
     for (int i = 0; i < 20; i++)
     {
@@ -40,12 +44,12 @@ int main(int argc, char const *argv[])
         this_thread::sleep_for(100ms);
     
         //actualizar
-       /* for (auto && i : dibujos)
+        for (auto && i : dibujos)
         {
             i.DesplazarX(experimental::randint(-1,1));
             i.DesplazarY(experimental::randint(-1,1)); 
         }
-        */
+
         //dibujar
         for (auto && i : dibujos)
         {

@@ -4,7 +4,6 @@
 #include <list>
 
 using namespace std;
-using namespace std;
 
 class Dibujo
 {
@@ -56,5 +55,9 @@ public:
     void DesplazarY (int distancia)
     {
         posicionY += distancia;
+    }
+    void EstablecerPosicion(int x, int y){
+        this->posicionX = x;
+        this->posicionY = y;
     }
 };
